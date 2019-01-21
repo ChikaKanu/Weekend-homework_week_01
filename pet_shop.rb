@@ -82,14 +82,28 @@ def customer_can_afford_pet(cash, price)
   return true
 end
 
-def pets_by_breed(breeds, count)
+def pets_by_breed(pet_shop, breed)
   pets_breed = []
-  for pet in @pet_shop[:pets]
-    count = 0
-    while breed_name = pet[:breed]
-      count += 1
-      pets_breed << breed_name
+  for pet in pet_shop[:pets]
+    if pet[:breed] == breed
+    pets_breed << pet
     end
   end
-  return pets_breed.count(breed_name)
+  return pets_breed
 end
+
+
+#
+#
+#
+# def pets_by_breed(pet_shop, name)
+#   pets = @pet_shop[:pets].map {|x| x}
+#   array_of_pets = pets.collect{|h| h.to_a}.flatten
+#   # array_of_pets.each { |name| counts[name] += 1 }
+#   # get_pet = @pet_shop[:pets].map {|x| x}
+#   #   pet_array = get_pet.collect{|h| h.to_a}.flatten
+#   #   breed_name_frequency_hash = {}
+#   #   breed_names.each do |breed_name|
+#   #   count = breed_names.count(breed_name)
+#   #   breed_name_frequency_hash[breed_name] = count
+# end
